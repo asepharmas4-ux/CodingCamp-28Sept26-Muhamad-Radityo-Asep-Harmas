@@ -1,0 +1,213 @@
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --green: #10b981;
+  --red: #ef4444;
+  --border: #e2e8f0;
+}
+
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+}
+body { 
+  background-color: var(--bg); 
+  color: var(--text); 
+  padding: 20px 12px; 
+}
+.app-container { 
+  max-width: 960px; 
+  margin: 0 auto; 
+}
+
+header { 
+  text-align: center; 
+  margin-bottom: 28px; 
+}
+header h1 { 
+  font-size: 2rem; 
+  color: var(--primary); 
+  font-weight: 800; 
+}
+header p { 
+  color: var(--text-muted); 
+  font-size: 0.95rem; 
+  margin-top: 4px; 
+}
+
+/* Summary Cards */
+.summary-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 16px; 
+  margin-bottom: 24px; 
+}
+.summary-card { 
+  background: var(--card-bg); 
+  padding: 18px; 
+  border-radius: 12px; 
+  border: 1px solid var(--border); 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+}
+.summary-card .label { 
+  font-size: 0.8rem; 
+  color: var(--text-muted); 
+  font-weight: 600; 
+  text-transform: uppercase; 
+}
+.summary-card .value { 
+  font-size: 1.4rem; 
+  font-weight: 700; 
+  margin-top: 6px; 
+}
+.value.income { color: var(--green); }
+.value.expense { color: var(--red); }
+.value.balance { color: var(--primary); }
+
+/* Main Grid */
+.main-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 24px; 
+  margin-bottom: 24px; 
+}
+@media (max-width: 768px) { 
+  .main-grid { grid-template-columns: 1fr; } 
+}
+
+/* Form Section */
+.card-box { 
+  background: var(--card-bg); 
+  padding: 20px; 
+  border-radius: 12px; 
+  border: 1px solid var(--border); 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+}
+.card-box h2 { 
+  font-size: 1.1rem; 
+  margin-bottom: 16px; 
+  border-bottom: 2px solid var(--bg); 
+  padding-bottom: 8px; 
+}
+
+.form-group { margin-bottom: 12px; }
+.form-group label { 
+  display: block; 
+  font-size: 0.8rem; 
+  font-weight: 600; 
+  color: var(--text-muted); 
+  margin-bottom: 4px; 
+}
+.form-control { 
+  width: 100%; 
+  padding: 10px; 
+  border: 1px solid var(--border); 
+  border-radius: 6px; 
+  font-size: 0.9rem; 
+  background: var(--bg); 
+  color: var(--text); 
+}
+.form-control:focus { 
+  outline: none; 
+  border-color: var(--primary); 
+}
+.btn-primary { 
+  width: 100%; 
+  padding: 12px; 
+  background: var(--primary); 
+  color: white; 
+  border: none; 
+  font-weight: 600; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  transition: background 0.2s; 
+  margin-top: 6px; 
+}
+.btn-primary:hover { 
+  background: var(--primary-hover); 
+}
+
+/* Charts */
+.chart-container { 
+  position: relative; 
+  height: 260px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+/* List & Filter */
+.list-tools { 
+  display: flex; 
+  gap: 8px; 
+  margin-bottom: 16px; 
+  flex-wrap: wrap; 
+}
+.search-input { 
+  flex: 1; 
+  min-width: 180px; 
+}
+
+ul { list-style: none; }
+li { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 12px; 
+  background: var(--bg); 
+  border-radius: 8px; 
+  margin-bottom: 8px; 
+  border: 1px solid var(--border); 
+}
+.tx-info { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 2px; 
+}
+.tx-title { 
+  font-weight: 600; 
+  font-size: 0.95rem; 
+}
+.tx-meta { 
+  font-size: 0.75rem; 
+  color: var(--text-muted); 
+}
+.tx-amount { 
+  font-weight: 700; 
+  font-size: 0.95rem; 
+}
+.tx-amount.income { color: var(--green); }
+.tx-amount.expense { color: var(--red); }
+.btn-del { 
+  background: transparent; 
+  border: none; 
+  color: var(--text-muted); 
+  cursor: pointer; 
+  padding: 4px 8px; 
+  font-size: 1rem; 
+}
+.btn-del:hover { color: var(--red); }
+
+.danger-zone { 
+  text-align: right; 
+  margin-top: 16px; 
+}
+.btn-clear { 
+  background: transparent; 
+  border: 1px solid var(--red); 
+  color: var(--red); 
+  padding: 6px 12px; 
+  border-radius: 6px; 
+  font-size: 0.8rem; 
+  cursor: pointer; 
+}
+.btn-clear:hover { 
+  background: var(--red); 
+  color: white; 
+}
